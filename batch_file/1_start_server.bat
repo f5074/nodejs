@@ -1,3 +1,3 @@
-cd C:\DEV\nodejs
+cd..
 node app.js
 pause
