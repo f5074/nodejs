@@ -6,27 +6,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var port=process.env.PORT || 80;
 
+app.use(express.static(__dirname + '/'));
+// app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
   res.send('Hello World!\n');
  });
 
 app.listen(port);
 
-// pesudo code
-let users = [
-  {
-    id: 1,
-    name: 'alice'
-  },
-  {
-    id: 2,
-    name: 'bek'
-  },
-  {
-    id: 3,
-    name: 'chris'
-  }
-]
+app.get('/public', (req, res) => {
+  return res.render('./public/index.html');
+});
+
 
 // 1. 리스트 조회
 app.get('/users', (req, res) => {
@@ -82,4 +74,19 @@ app.post('/users', (req, res) => {
 });
 
 
+// pesudo code
+let users = [
+  {
+    id: 1,
+    name: 'alice'
+  },
+  {
+    id: 2,
+    name: 'bek'
+  },
+  {
+    id: 3,
+    name: 'chris'
+  }
+]
 
